@@ -1,0 +1,13 @@
+# Dependencias
+node_modules/
+
+# Archivos de entorno
+.env
+
+# Certificados y claves privadas (recomendado no subirlos)
+server.cert
+server.key
+
+# Logs y temporales
+*.log
+*.tmp
