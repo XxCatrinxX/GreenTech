@@ -10,7 +10,7 @@ const https = require("https");
 const fs = require("fs");
 
 mongoose
-  .connect("mongodb://127.0.0.1:27017/greentech", {})
+  .connect("mongodb+srv://yepezortizj:6weDwUQE8mkXlmHN@clustergreentech.nfril.mongodb.net/greentech?retryWrites=true&w=majority", {})
   .then(() => console.log("Conexión exitosa a MongoDB"))
   .catch((err) => console.log("Error al conectar a MongoDB", err));
 
