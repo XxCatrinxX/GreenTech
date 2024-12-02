@@ -14,11 +14,6 @@ mongoose
   .then(() => console.log("Conexión exitosa a MongoDB"))
   .catch((err) => console.log("Error al conectar a MongoDB", err));
 
-const sslOptions = {
-  key: fs.readFileSync(path.join(__dirname, "server.key")),
-  cert: fs.readFileSync(path.join(__dirname, "server.cert")),
-};
-
 //listado de archivos de rutas
 //Importacion de modelos
 require("./model/sensor");
@@ -80,18 +75,10 @@ app.use((err, req, res, next) => {
 });
 
 
-
-// Crear servidor HTTPS
-https.createServer(sslOptions, app).listen(443, () => {
-  console.log("Servidor HTTPS en el puerto 443");
-});
-
-// Redirigir tráfico HTTP a HTTPS
-https.createServer((req, res) => {
-    res.writeHead(301, { Location: `https://${req.headers.host}${req.url}` });
-    res.end();
-}).listen(80, () => {
-    console.log("Redirección de HTTP a HTTPS en el puerto 80");
+// Crear servidor HTTP
+const PORT = process.env.PORT || 3000; // Railway asignará automáticamente un puerto
+app.listen(PORT, () => {
+  console.log(`Servidor corriendo en el puerto ${PORT}`);
 });
 
 module.exports = app;
