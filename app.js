@@ -75,7 +75,7 @@ app.use((err, req, res, next) => {
 });
 
 // Crear servidor HTTP
-const PORT = process.env.PORT || 3000; // Railway asignará automáticamente un puerto
+const PORT = process.env.PORT || 8080; // Railway asignará automáticamente un puerto
 app.listen(PORT, () => {
   console.log(`Servidor corriendo en el puerto ${PORT}`);
 });
