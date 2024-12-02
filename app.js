@@ -74,11 +74,6 @@ app.use((err, req, res, next) => {
   res.status(err.status || 500).json({ error: err.message });
 });
 
-// Crear servidor HTTP
-const PORT = process.env.PORT || 8080; // Railway asignará automáticamente un puerto
-app.listen(PORT, () => {
-  console.log(`Servidor corriendo en el puerto ${PORT}`);
-});
 
 
 module.exports = app;
